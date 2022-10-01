@@ -42,7 +42,7 @@
 								<div class="image main"><img src="images/Telsa.jpg" alt="" /></div>
 							<p> <h3>Will holding a TLSA stock in its early growth stage help me attain my dream car?</h3>
 								Lets start by analysing the potential of implementing an algorithm system rather than an investing discretionary approach by weighting up the pros
-								and cons. First, lets mention the stock spilts that occurred up to the date from June 29, 2010 to 27 September, 2022.
+								and cons. First, lets mention the stock spilts that occurred up to the date from June 29, 2010 to 01 October, 2022.
 								<br />
 								<br />
 								<h4>The stock spilts that occurred since TSLA went public</h4>
@@ -70,23 +70,64 @@
 								that is decided by technical analysis. The properties must be verified in the formula on how the diagnostic elements will be considered:
 								<br />
 								<ul>
-									<li>Simple Moving Average 20 </li>
-									<li>Simple Moving Average 100</li>
-									<li>Buy when </li>
-									<li>Sell when </li>
+									<li>Simple Moving Average 40.</li>
+									<li>Simple Moving Average 200.</li>
+									<li>Buying Signal: If the MA40 is above the MA of 200 days but is not the day before, then buy. </li>
+									<li>Selling Signal: If the Moving Average of 200 days is above the moving average of 40 days but is not the day before, 
+										then sell. </li>
 									</ul>
 								<h4>Building the backtesting Python program to analyse the above considerations</h4>
 								Now we want to find out the difference between whether to invest wholeheartedly believing the stock has great potential or allow an algorithm system
 								to make the decision for us.
 								<br />
-								The first step in our analysis is to know what to import for our analysis and focus on using Python to develop our backtesting idea. <br />
-								We will import the following:
-								<ul>
-									<li>Import yfinance as yf </li>
-									<li>Import pandas as pd</li>
-									<li>Import matplotlib.pyplot as plt </li>
-									</ul>
+								The first step in our analysis is to determine the process, what to import and what will our analysis be all about.
+								The focus is to backtest a simple moving average of 40 and 200. <br />
+								The following code with the description written is displayed:
+								<div class="image main"><img src="images/SMA1.PNG" alt="" /></div>
+								<div class="image main"><img src="images/SMA2.PNG" alt="" /></div>
+								<div class="image main"><img src="images/SMA3.PNG" alt="" /></div>
+								<div class="image main"><img src="images/SMA4.PNG" alt="" /></div>
+								<div class="image main"><img src="images/SMA5.PNG" alt="" /></div>
+								The above is to be coded in ascending order and the question that will need to be asked is whether the total real profit is 54 times the starting amount
+								or the ending amount of the last purchase price. 
 								<br />
+								<br />
+								To answer the above quesiton, what percentage of capital increased from each intervention of the buy and sell signal that was created. To calculate this, we
+								require locating the rows and that had a buy signal and correspond the sell signal and see the capital gain from each intervention period. This is showed in the image below:
+								<div class="image main"><img src="images/SMA6.PNG" alt="" /></div>
+								Also, disregard the Sell signal in row 94 and Buy signal in 2880 as this goes outside the spectrum of the data for analysis. The analysis relies 
+								on the entry on Adjusted Close Price and locating each point is crucial for the analysis. So the aim is to locate the column of Adj Close which is 6
+								 and to verify the analysis correlates with the above answer.
+								 <br />
+								 <ul>
+									<li> Buy Row 138 = 1.88 (Starting Capital)</li>
+									<li>Sell Row 304 = 2.25 (Percentage gained = 19.5%)</li>
+									<li> Buy Row 421 = 2.35</li>
+									<li> Sell Row 939 = 14.62 (Percentage gained = 622%)</li>
+									<li> Buy Row 1039 = 16.76</li>
+									<li>Sell Row 1152 = 15.45 (Percentage loss = 8.5%)</li>
+									<li> Buy Row 1264 = 16.49</li>
+									<li> Sell Row 1307 = 14.65 (Percentage loss = 12.5%)</li>
+									<li>Buy Row 1323 = 14.84</li>
+									<li>Sell Row 1372 = 13.68 (Percentage loss = 8.5%)</li>
+									<li>Buy Row 1457 = 16.97</li>
+									<li> Sell Row 1673 = 20.59 (Percentage gain = 21.1%)</li>
+									<li>Buy Row 1828 = 20.67</li>
+									<li>Sell Row 1866 = 17.55 (Percentage loss = 17.78%)</li>
+									<li>Buy Row 1921 = 23.07</li>
+									<li>Sell Row 1976 = 20.53 (Percentage loss = 12.32%)</li>
+									<li>Buy Row 2153 = 21.08</li>
+									<li>Sell Row 2569 = 226.61 (Percentage gain = 1075%)</li>
+									<li> Buy Row 2594 = 229.07</li>
+									<li> Sell Row 2798 = 221.30 (Percentage loss = 3.5%)</li>
+									</ul>
+								 <br />
+								 <h4>Back-testing results versus discretionary long term approach</h4>
+								 The analysis indicates that the capital invested from the beginning to end will eventuate to being 11,693% increase in capital return,
+								  excluding transaction cost.
+
+
+								<br /><br />
 								<h4>Conclusion</h4>
 								This analysis showed that a stock in their early growth stages and implementing an algorithm strategy long term was seen unfavourable.<br />
 									The summary is to deploy an algorithm system when volatility is high where price had a balanced reasoning in the financial market.
